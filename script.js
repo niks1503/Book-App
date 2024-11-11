@@ -37,6 +37,7 @@ function displayCategories(book) {
     p.textContent = category.list_name;
     categories.appendChild(p);
   });
+  book.addEventListener(onclick, () => {});
 }
 
 let showBookContainer = document.querySelector(".all-book");
