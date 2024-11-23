@@ -25,6 +25,29 @@ header {
   color: #131212;
 }
 
+.togle button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  color: red;
+  padding: 10px;
+  background-color: #333;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.togle button:hover {
+  background-color: #000000;
+}
+
+.togle button:active {
+  scale: 0.95;
+}
+
 .togle,
 .icon {
   display: flex;
@@ -53,7 +76,7 @@ header {
   border-radius: 20px;
   position: relative;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .toggle::before {
@@ -98,6 +121,11 @@ main {
 .all-books h2 {
   font-size: 1.5rem;
   color: #9c35e0;
+  cursor: pointer;
+  transition: 0.3s ease;
+  &:hover {
+    scale: 1.02;
+  }
 }
 
 .all-books::-webkit-scrollbar {
@@ -193,6 +221,11 @@ main {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    scale: 0.95;
+  }
 }
 
 .book-card img {
@@ -209,9 +242,143 @@ main {
   font-size: 0.8rem;
   color: #333;
 }
+.book-item {
+  width: 25%;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.book-item {
+  width: 25%;
+  position: relative;
+  overflow: hidden;
+}
+
+.quickView {
+  width: 100%;
+  height: 100%;
+  display: none; /* Initially hidden */
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(245, 211, 16);
+  color: #fff;
+  font-weight: 500;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 20;
+  text-align: center;
+}
+
+.quickView-2 {
+  width: 100%;
+  display: none; /* Initially hidden */
+  align-items: center;
+  padding: 10px;
+  justify-content: center;
+  background-color: rgb(245, 211, 16);
+  color: #fff;
+  font-weight: 500;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 20;
+  text-align: center;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+  display: none;
+}
+
+.book-info {
+  position: fixed;
+  width: 60%;
+  max-width: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 50;
+  display: none;
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.book-info img {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.left-book {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-book {
+  flex: 2;
+}
+
+.right-book h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.right-book p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.buy-link {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.buy-link a {
+  display: inline-block;
+  & > img {
+    width: auto;
+    height: 40px;
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+}
 
 .book-card2 {
   display: flex;
+  position: relative;
   margin: 15px;
   padding: 15px;
   width: 220px;
@@ -246,6 +413,30 @@ main {
 .book-card2:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.book-card2 p {
+  font-size: 0.9em;
+  color: #777;
+  margin-top: 5px;
+}
+
+.book-card2:hover {
+  transform: scale(1.05);
+}
+
+.book-info a {
+  text-decoration: none;
+}
+
+.book-info a img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.book-info a img:hover {
+  transform: scale(1.1);
 }
 
 footer {
@@ -301,4 +492,174 @@ body.dark-mode .all-book {
 
 body.dark-mode .type p {
   color: #f4f4f9;
+}
+body.dark-mode .book-item p {
+  color: #f4f4f9;
+}
+
+body.dark-mode .book-card img {
+  border: 2px solid #f4f4f9;
+}
+
+body.dark-mode .book-item {
+  background-color: #000;
+}
+
+@media (max-width: 1024px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+  .all-books {
+    width: 100%;
+    height: 200px;
+    top: 1rem;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .book-container {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .book-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .book-card2 {
+    width: 90%;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .book-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .togle button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .see-more {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    display: block;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .all-books {
+    width: 80%;
+    height: 200px;
+    top: 1rem;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .book-container {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .book-item {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .book-card2 {
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .book-container h2 {
+    font-size: 1.1rem;
+  }
+  .profile {
+    display: none;
+  }
+  .book-card2 h3 {
+    font-size: 1rem;
+  }
+
+  .book-card2 p {
+    font-size: 0.85rem;
+  }
+
+  .book-info {
+    width: 90%;
+    padding: 15px;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .book-info img {
+    width: 100%;
+    height: auto;
+  }
+
+  .close-btn {
+    font-size: 1rem;
+    padding: 5px 8px;
+  }
+
+  .togle button {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+
+  .see-more {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  body.dark-mode .book-item {
+    background-color: #333;
+    color: #f4f4f9;
+  }
+
+  body.dark-mode .book-card2 {
+    background-color: #444;
+  }
 }

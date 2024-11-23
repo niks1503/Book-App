@@ -3,36 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book App</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Sign Up & Login</title>
+    <link rel="stylesheet" href="form.css" />
   </head>
   <body>
-    <header>
-      <div class="icon">
-        <img
-          src="./img/pngtree-open-book-logo-png-image_12467719.png"
-          alt="book"
-        />
-        <h1>Book</h1>
-      </div>
-      <div class="togle">
-        <div class="toggle"></div>
-        <p class="theme">Theme</p>
-      </div>
-    </header>
-    <main>
-      <div class="all-books">
-        <h2>All Categories</h2>
-        <ul class="type" id="type"></ul>
-      </div>
-      <div class="add-book">
-        <h2 class="Categories">Add a new book</h2>
-        <ul class="all-book"></ul>
-      </div>
-    </main>
-    <footer>
-      <p>© 2024 Book App. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+    <div class="container">
+      <h2 id="form-title">Sign Up</h2>
+
+      <form id="auth-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" required />
+          <small class="error" id="username-error"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required />
+          <small class="error" id="password-error"></small>
+        </div>
+
+        <button type="submit" id="submit-btn">Sign Up</button>
+        <p id="toggle-form">
+          Already have an account? <span id="toggle-link">Log In</span>
+        </p>
+      </form>
+      <small id="success-msg"></small>
+    </div>
+
+    <script src="form.js"></script>
   </body>
 </html>
